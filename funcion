@@ -1,0 +1,26 @@
+function [raiz,ite] = newton(f,x0,tol)
+%{
+Joel Quintuna
+f: función a evaluar
+x0: valor inicial con el cual empezaremos el metodo
+tol: tolerancia máxima en la aproximación
+raiz: valor aproximado de la raíz
+ite: numero de iteraciones realizadas%}
+syms x;
+i=1;
+fx(i)=x0;
+f1=f(fx(i));
+fp= eval(['@(x)' char(diff(f(x)))]); % derivada de la funcion comando diff
+%d=fp(fx(i));
+ea(1)=100; % Error aproximado
+while abs(ea(i))>=tol
+    d=fp(fx(i));
+    fx(i+1)=fx(i)-f1/d;
+    f1=f(fx(i+1)); 
+    %d=fp(fx(i+1));
+    ea(i+1)=abs((fx(i+1)-fx(i))/fx(i+1)*100);
+    i=i+1;
+end
+raiz = fx(i);
+ite = i - 1;
+end
