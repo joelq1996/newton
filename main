@@ -1,0 +1,5 @@
+f = @(x) x.^2-81;
+x0 = 0.1;
+tol = 0.000000001;
+[y,iter] = newton(f,x0,tol);
+fprintf('El valor de corte es y=%d, el numero de iteraciones es %d\n',y,iter);
