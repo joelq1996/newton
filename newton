@@ -5,7 +5,8 @@ f: función a evaluar
 x0: valor inicial con el cual empezaremos el metodo
 tol: tolerancia máxima en la aproximación
 raiz: valor aproximado de la raíz
-ite: numero de iteraciones realizadas%}
+ite: numero de iteraciones realizadas
+%}
 syms x;
 i=1;
 fx(i)=x0;
